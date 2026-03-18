@@ -1,0 +1,198 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Sora:wght@500;600;700&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+  --app-bg: #f3f8f6;
+  --app-bg-soft: #e8f3ef;
+  --surface-1: rgba(255, 255, 255, 0.92);
+  --surface-2: rgba(248, 252, 250, 0.88);
+  --surface-border: rgba(19, 80, 74, 0.16);
+  --text-strong: #123431;
+  --text-soft: #496661;
+  --accent: #0f766e;
+  --accent-strong: #115e59;
+  --accent-soft: #d9f2ed;
+}
+
+body {
+  @apply m-0 min-h-screen font-body;
+  color: var(--text-strong);
+  background-color: var(--app-bg);
+  background-image:
+    radial-gradient(circle at 12% 18%, rgba(15, 118, 110, 0.18), transparent 30%),
+    radial-gradient(circle at 84% 14%, rgba(16, 185, 129, 0.16), transparent 28%),
+    linear-gradient(160deg, var(--app-bg) 0%, var(--app-bg-soft) 52%, #fdfefe 100%);
+  background-attachment: fixed;
+}
+
+@keyframes riseIn {
+  from {
+    opacity: 0;
+    transform: translateY(14px) scale(0.985);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.lift-in {
+  animation: riseIn 0.42s ease-out both;
+}
+
+.glass {
+  @apply border backdrop-blur-xl;
+  border-color: var(--surface-border);
+  background-color: var(--surface-1);
+  box-shadow: 0 14px 36px rgba(13, 45, 41, 0.08);
+}
+
+.login-card {
+  border-radius: 1.25rem;
+  box-shadow: 0 28px 60px rgba(13, 45, 41, 0.14);
+}
+
+.section-title {
+  @apply font-display text-2xl font-semibold;
+  color: var(--text-strong);
+}
+
+.input {
+  @apply w-full rounded-lg border px-4 py-2 text-sm outline-none transition;
+  border-color: var(--surface-border);
+  background-color: var(--surface-2);
+  color: var(--text-strong);
+}
+
+.input::placeholder {
+  color: #6f8b85;
+}
+
+.input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(15, 118, 110, 0.18);
+}
+
+.btn-primary {
+  @apply rounded-lg px-4 py-2 text-sm font-semibold text-white transition;
+  background: linear-gradient(135deg, var(--accent) 0%, #0d9488 100%);
+  box-shadow: 0 10px 22px rgba(15, 118, 110, 0.24);
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, var(--accent-strong) 0%, #0f766e 100%);
+  transform: translateY(-1px);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+.btn-secondary {
+  @apply rounded-lg border px-4 py-2 text-sm font-medium transition;
+  border-color: var(--surface-border);
+  color: var(--text-strong);
+  background-color: rgba(255, 255, 255, 0.72);
+}
+
+.btn-secondary:hover {
+  border-color: rgba(15, 118, 110, 0.45);
+  color: var(--accent-strong);
+  background-color: #ffffff;
+}
+
+/* Utility overrides so existing pages adopt the new palette without component rewrites. */
+.text-white,
+.text-slate-100,
+.text-slate-200,
+.text-slate-300,
+.text-slate-400 {
+  color: var(--text-strong);
+}
+
+.text-slate-500,
+.text-slate-600,
+.text-slate-700 {
+  color: var(--text-soft);
+}
+
+.text-cyber-100,
+.text-cyber-400,
+.text-cyber-500,
+.text-blue-400,
+.text-cyan-400 {
+  color: var(--accent);
+}
+
+.text-red-300,
+.text-red-400 {
+  color: #b42318;
+}
+
+.bg-slate-950,
+.bg-slate-950\/95,
+.bg-slate-950\/85,
+.bg-slate-950\/70,
+.bg-slate-900,
+.bg-slate-900\/80,
+.bg-slate-900\/60,
+.bg-slate-900\/50,
+.bg-slate-900\/40,
+.bg-slate-900\/30,
+.bg-slate-900\/20,
+.bg-slate-800,
+.bg-slate-800\/70,
+.bg-slate-800\/60,
+.bg-slate-800\/50,
+.bg-slate-800\/40,
+.bg-slate-700,
+.bg-slate-700\/30 {
+  background-color: var(--surface-1);
+}
+
+.border-slate-800,
+.border-slate-800\/80,
+.border-slate-800\/70,
+.border-slate-800\/60,
+.border-slate-700,
+.border-slate-700\/60,
+.border-slate-700\/50,
+.border-slate-600,
+.border-slate-400 {
+  border-color: var(--surface-border);
+}
+
+.bg-cyber-500,
+.bg-cyber-500\/20,
+.bg-cyber-500\/15,
+.bg-cyber-500\/10,
+.bg-cyber-500\/5 {
+  background-color: var(--accent-soft);
+}
+
+.bg-red-500\/10 {
+  background-color: rgba(180, 35, 24, 0.08);
+}
+
+.border-cyber-500,
+.border-cyber-500\/50,
+.border-cyber-500\/40,
+.border-cyber-500\/30,
+.border-cyber-500\/20 {
+  border-color: rgba(15, 118, 110, 0.34);
+}
+
+.from-slate-950,
+.via-slate-950,
+.to-slate-950,
+.to-slate-900\/80,
+.from-cyber-900\/40,
+.from-cyber-500,
+.to-blue-400 {
+  --tw-gradient-from: #e6f4f1 var(--tw-gradient-from-position);
+  --tw-gradient-to: rgba(230, 244, 241, 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), #ffffff var(--tw-gradient-via-position), #f0faf7 var(--tw-gradient-to-position);
+}
