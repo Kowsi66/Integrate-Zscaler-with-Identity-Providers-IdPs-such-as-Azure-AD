@@ -92,12 +92,13 @@ This repo includes a workflow at `.github/workflows/deploy.yml`.
 After pushing to `main`:
 
 1. Open your GitHub repo.
-2. Go to **Settings → Pages**.
-3. Set **Source** to **GitHub Actions**.
-4. Wait for the **Deploy to GitHub Pages** workflow to complete.
+2. Go to **Settings -> Pages**.
+3. Set **Source** to **Deploy from a branch**.
+4. Select branch **gh-pages** and folder **/(root)**.
+5. Wait for the **Deploy to GitHub Pages** workflow to complete.
 
 Important:
-- GitHub Pages deploys only the React frontend.
+- GitHub Pages deploys only the React frontend (static files).
 - Your Express backend does not run on GitHub Pages.
 - For full-stack hosting, deploy backend separately (Render, Railway, or similar) and set `VITE_API_BASE_URL` to that backend URL.
 
